@@ -26,7 +26,12 @@ button,
     -moz-border-radius:4px;
     border-radius: 4px;
 }
-
+#task_input_field {
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
 .height52 { height: 49.8px; }
 .greenbtn{ background: #4caf50; }
 .bluebtn{ background: #3498db; }
@@ -175,6 +180,8 @@ div[empty-task-list-template] {
 #toggleDiv span {
     position: absolute;
     color: rgba(255,255,255,0.80);
+	left: 50%;
+margin-left: -1px;
 }
 
 .cross_mark {
@@ -527,3 +534,16 @@ body { font-family: 'Open Sans', sans-serif;
     padding-top: 140px;
     padding-bottom: 140px;
 }
+
+
+
+
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
