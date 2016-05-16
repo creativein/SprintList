@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    angular.module('oTask')
+    angular.module('SprintList')
         .config(config);
 
     function config($stateProvider, $urlRouterProvider) {

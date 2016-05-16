@@ -5,7 +5,7 @@
   Project Owner: Bappy Golder | www.BappyGolder.com
 -->
 
-<div id="app_container"> Hello hii
+<div id="app_container" ng-controller="ApplicationController">
   
   <!--start: Add Task Section -->
   <div id="add_task_section"> 
@@ -14,10 +14,12 @@
       <!--<textarea class="curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New Task . . ." onfocus="function(){console.log('hello');}"></textarea>-->
       
       <input-textarea></input-textarea>
+      <div id="toggleDiv">
       <button class="curve "
-                    id="add_task_button"
-                    ng-disabled="vm.newDescription == ''"
-                    ng-click="vm.addTask()"> </button>
+                    id="add_task_button" ng-click="vm.addTask()" ng-disabled="vm.newDescription == ''"></button>
+				<span>|</span>
+					<button class="curve"  id="start_task_button" ng-disabled="vm.newDescription == ''"></button>
+					</div>
       <!--Button content/text added from the file ng-class="{'btn-disabled' : vm.newDescription == ''}" -> static-html-content.js -->
       
     </form>
@@ -52,11 +54,11 @@
                   <button class="cross_mark height52" ng-click="vm.deleteTask($index)"> 
                         <span class="icon icon-remove"></span>
                   </button>
-                  <button type="button" class="vtr-iconbar height52"  onclick="location.href = '#/login';">
+                  <!-- <button type="button" class="vtr-iconbar height52"  onclick="location.href = '#/login';">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                  </button>
+                  </button> -->
                   <div class="action-buttons">
                         <input	type="checkbox" ng-hide="true" name="done" value="Done">
                         <span ng-hide="true">{{ task.timestamp | date : 'medium'}}</span>
@@ -68,23 +70,26 @@
                   </div>
             </li>
     </ul>
+	
+
   </div>
+  
   <!--end: Task Section -->
   
-  <div id="clear_task_section">
+<!--   <div id="clear_task_section">
     <button id="clear_list_button"
                 ng-show="!vm.isListEmpty"
                 class="curve greenbtn"
                 type="button"
                 ng-click="vm.clearAllTasks()"> </button>
     
-    <!--About button when task is empty-->
+    
     <button id="about_otask_button"
                 ng-show="vm.isListEmpty"
                 class="curve greenbtn"
                 type="button"
-                onclick="window.open('http://otask.tumblr.com/about')"> </button>
-  </div>
+                > </button>
+  </div> <!--About button when task is empty-->
   <!--end: #clear_task_section--> 
       
   <!--Javascript File Links-->

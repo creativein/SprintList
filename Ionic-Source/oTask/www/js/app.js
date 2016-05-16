@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('oTask', ['ui.router']).controller('ApplicationController', ApplicationController);
+    angular.module('SprintList', ['ui.router']).controller('ApplicationController', ApplicationController);
 
     ApplicationController.$inject = ['$scope', '$location', '$rootScope'];
 

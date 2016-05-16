@@ -4,7 +4,7 @@
 (function () {
     'use strict';
 
-    angular.module('oTask')
+    angular.module('SprintList')
         .controller('TaskViewController', TaskViewController);
 
     TaskViewController.$inject = ['$state', '$scope'];

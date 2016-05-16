@@ -4,7 +4,7 @@
 (function () {
     'use strict';
 	
-    angular.module('oTask')
+    angular.module('SprintList')
         .directive('inputTextarea',function(){
 
              // return the placeholder text
@@ -16,11 +16,13 @@
               template: '<textarea class="curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New List Item ..."></textarea>',  
               link: function(scope,element,attrs){
                             $('#task_input_field').focus(function() {
-                                $('#add_task_button').fadeIn();
+                               // $('#add_task_button').fadeIn();
+							    $('#toggleDiv').fadeIn();
                                 $(this).attr('placeholder', dynamic_placeholder());
                             }).blur(function() {
                                 if($(this).val() == ''){
-                                    $('#add_task_button').fadeOut();   
+                                    //$('#add_task_button').fadeOut();   
+									 $('#toggleDiv').fadeIn();
                                 }
                                 $(this).attr('placeholder', 'New List Item ...');
                                  

@@ -27,7 +27,7 @@ button,
     border-radius: 4px;
 }
 
-.height52 { height:54px;  }
+.height52 { height: 49.8px; }
 .greenbtn{ background: #4caf50; }
 .bluebtn{ background: #3498db; }
 /*end: Global CSS
@@ -84,7 +84,7 @@ div[empty-task-list-template] {
 }
 
 #task_section {
-    background: #eeeeee;
+    background: #EFF0F0;
 }
 
 #task_section ul {
@@ -96,10 +96,12 @@ div[empty-task-list-template] {
     margin-bottom: 10px;
     line-height: 140%;
     list-style-type: none;
-    padding: 14px 10px;
+    min-height: 30px;
+    padding: 12px 25px;
     position: relative;
-	min-height: 54px;
-	color: #333;
+    color: #333;
+    border-radius: 40px;
+    border: 1px solid #E6E5E5;
 }
 
 #empty_msg {
@@ -152,15 +154,27 @@ div[empty-task-list-template] {
     display: inline-block;
 }
 
-#add_task_button {
+#add_task_button,#start_task_button {
+     border: 0 none;
+    border-radius: 0 0 0 5px;
+    float: left;
+    font-size: 18px;
+    font-weight: 300;
     height: auto;
-    padding: 5px 0;
+    margin: 0;
+    padding: 6px 0;
     text-transform: uppercase;
-    border: 0;
-    width: 100%;
-    margin: 15px 0 0;
-		font-weight: 300;
-		font-size:25px;
+    width: 50%;
+}
+
+#start_task_button {
+    border-radius: 0;
+    border-bottom-right-radius: 5px;
+}
+
+#toggleDiv span {
+    position: absolute;
+    color: rgba(255,255,255,0.80);
 }
 
 .cross_mark {
@@ -305,7 +319,8 @@ html {
 }
 
 #add_task_section {
-    background: #d7d7d8;
+    background: url("../images/top_bg.png") no-repeat ;
+	background-size: 100%;
 }
 
 #add_task_section form {
@@ -313,6 +328,8 @@ html {
 }
 
 #add_task_button.btn-disabled{ 
+	display:none;
+}#start_task_button .btn-disabled{ 
 	display:none;
 }
 
@@ -363,7 +380,7 @@ html {
 #task_section ul li:last-child{ margin-bottom:0px;}
 .cross_mark {
     color: white;
-    background: #76d378;
+    background: #1ab4e6;
 
 }
 
@@ -376,13 +393,13 @@ html {
 }
 
 
-#add_task_button {
-    background: #eb8a6c;
-    color: #fff;
-    display: none;
-	
-    /*	margin-top: 7px;*/
+#add_task_button,#start_task_button  {
+      background: #249dc4 none repeat scroll 0 0;
+    color: rgba(255, 255, 255, 0.83);
 }
+#toggleDiv  {
+	display: none;
+	}
 
 #clear_task_section button {
     color: #fff;
@@ -428,7 +445,7 @@ body { font-family: 'Open Sans', sans-serif;
 ---------------------------------------------------------------------------------------------------*/
 
 /*--17-03-2016 --*/
-.task.curve .cross_mark{ border-radius: 0px;  right: 20px;}
+.task.curve .cross_mark{ border-radius: 0px;  right: -1px; border-radius: 0 40px 40px 0; padding: 0 45px 0 10px; top:-1px;}
 .task.curve.fullView .cross_mark{ border-radius:0 0 0 3px;}
 .ng-binding {  overflow: hidden;display: block; padding-right: 65px;   white-space: normal; word-break: break-all;}
 .fullView .ng-binding {  white-space: normal; word-break: break-all;}
@@ -510,4 +527,3 @@ body { font-family: 'Open Sans', sans-serif;
     padding-top: 140px;
     padding-bottom: 140px;
 }
-
