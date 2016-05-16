@@ -127,7 +127,7 @@ div[empty-task-list-template] {
 .cross_mark {
     border: 0;
    /* float: right;*/
-    width: 40px;
+    width: 50px;
     text-align: center;
 }
 
@@ -428,9 +428,9 @@ body { font-family: 'Open Sans', sans-serif;
 ---------------------------------------------------------------------------------------------------*/
 
 /*--17-03-2016 --*/
-.task.curve .cross_mark{ border-radius: 0px;  right: 20px;}
+.task.curve .cross_mark{ /*border-radius: 0px;  right: 20px;*/}
 .task.curve.fullView .cross_mark{ border-radius:0 0 0 3px;}
-.ng-binding {  overflow: hidden;display: block; padding-right: 65px;   white-space: normal; word-break: break-all;}
+.ng-binding {  overflow: hidden;display: block; padding-right: 38px;   white-space: normal; word-break: break-all;}
 .fullView .ng-binding {  white-space: normal; word-break: break-all;}
 .vtr-iconbar:focus {  outline: 0px; }
 .vtr-iconbar { 
@@ -466,7 +466,7 @@ body { font-family: 'Open Sans', sans-serif;
 .display-table{ display:table; height: 100%; width: 100%;}
 .display-tablecell{ display: table-cell;  vertical-align: middle;} 
 .icon { display: inline-block; }
-.icon-remove{ width:30px; height: 100%; background: url(../images/close-icon.png) center center no-repeat; }
+.icon-remove{ width:35px; height: 100%; background: url(../images/close-icon.png) center center no-repeat; }
 .icon-exachange{ width:52px; background: rgba(0, 0, 0, 0.5) url(../images/arrows-exchange.png) center center no-repeat; }
 .activateDargandDrop .overlay {
     background-color: rgba(0, 0, 0, 0.5);

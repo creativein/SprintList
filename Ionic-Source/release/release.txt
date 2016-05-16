@@ -1,0 +1,13 @@
+keytool -genkey -v -keystore sprintlist-release-key.keystore -alias SprintList -keyalg RSA -keysize 2048 -validity 10000
+
+
+password: otask@123
+Bappy Golder
+password:sprintlist
+
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore sprintlist-release-key.keystore android-release-unsigned.apk SprintList 
+
+zipalign -v 4 android-release-unsigned.apk oTask.apk
+
+
