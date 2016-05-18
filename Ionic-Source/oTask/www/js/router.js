@@ -8,6 +8,7 @@
         .config(config);
 
     function config($stateProvider, $urlRouterProvider) {
+		
         
         $urlRouterProvider.otherwise('/taskView');
         $stateProvider
@@ -23,6 +24,11 @@
              .state('signup', {
                 url: '/signup',
                 templateUrl: 'views/task-view/signup'
+            })
+			 .state('taskStatus', {
+                url: '/taskStatus',
+                templateUrl: 'views/task-view/taskStatus.html',
+                controller: 'TaskViewController as vm'
             })
     }
 })();

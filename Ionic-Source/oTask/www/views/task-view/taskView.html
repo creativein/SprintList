@@ -4,9 +4,8 @@
   Timeline Website: http://otask.tumblr.com/
   Project Owner: Bappy Golder | www.BappyGolder.com
 -->
-
-<div id="app_container" >
-  
+<ion-view  ng-controller="ApplicationController" class="ion_custom">
+        <ion-content >  
   <!--start: Add Task Section -->
   <div id="add_task_section"> 
     <form id="add_task" name="add_task">
@@ -15,14 +14,15 @@
       
       <input-textarea></input-textarea>
 	  
-	  <!-----Start button added on 16/5/2016 --->
-	  
+	  <!---------------Start Button added ----------->
       <div id="toggleDiv">
-      <button class="curve "
-                    id="add_task_button" ng-click="vm.addTask()" ng-disabled="vm.newDescription == ''"></button>
-				<span>|</span>
-					<button class="curve"  id="start_task_button" ng-disabled="vm.newDescription == ''"></button>
-					</div>
+		  <button class="curve" id="add_task_button" ng-click="vm.addTask()" ng-disabled="vm.newDescription == ''">
+		  </button>
+		  <span>|</span>
+		  <button class="curve"  id="start_task_button" ng-disabled="vm.newDescription == ''"></button>
+	  </div>
+					
+	  <!----------------- starts button ended ------------>
 					
       <!--Button content/text added from the file ng-class="{'btn-disabled' : vm.newDescription == ''}" -> static-html-content.js -->
       
@@ -31,7 +31,7 @@
   <!--end: #add_task_section--> 
   
   <!--start: Task Section -->
-  <div id="task_section" class="simpleDemo"> 
+ 
     <!-- Show Empty text if no tasks exist -->
     <div id="empty_msg"
              ng-if="vm.isListEmpty"> </div>
@@ -50,7 +50,7 @@
                 </li>
             </div>
         </ul>-->
-    <ul id="sortable"  class="task-wrapper " ng-if="!vm.isListEmpty">
+    <ul id="sortable"  class="task-wrapper task_ul" ng-if="!vm.isListEmpty">
             <li class="task  curve {{task.class}}" ng-repeat="task in vm.taskList" ng-class="{'selected': models.selected === task}" >
                   <div class="task-bottom" ng-click="divalert($event)">
                         <span>{{task.description}}</span>
@@ -73,12 +73,17 @@
                         </div>
                   </div>
             </li>
-    </ul>
+    </ul>	
+ 
+    <!--end: Task Section -->
 	
 
-  </div>
   
-  <!--end: Task Section -->
+  </ion-content>
+    <div id="menu_overlay" class="menu_overlay" ></div>
+
+      </ion-view>
+
   
 <!--   <div id="clear_task_section">
     <button id="clear_list_button"
@@ -97,7 +102,27 @@
   <!--end: #clear_task_section--> 
       
   <!--Javascript File Links-->
-
-  <script src="js/static-html-content.js" type="text/javascript"></script> 
+<ion-footer-bar class="bar-transparent has-tabs has-footer" align-title="center" >
+  <!------Menu Toggle starts -------->
+  <div class="footer_menu">  
+	  <div ng-hide="slideToggle" class="main_menu_box" ng-click="slideToggle=! slideToggle">
+      <div class="foot_icon menu_on"></div>
+      </div>
+	  <div ng-hide="!slideToggle" class="main_menu_box" ng-click="slideToggle=! slideToggle">
+            <div class="foot_icon menu_off"></div>
 </div>
+	  <div class="slide-toggle menu_box" ng-show="slideToggle">
+		   <ul>
+		   <li><a href="">Sprintlist </a></li>
+		   <li><a href="">Completed Items</a></li>
+		   <li><a href=""> Incomplete list </a></li>
+		   <li ><a href=""> Clear list  </a></li>
+		   <li ><a href=""> Add items  </a></li>
+		   </ul>
+	  </div>
+  </div>
+<!------------- Menu Toggle ends ------------->
+</ion-footer-bar>
+  <script src="js/static-html-content.js" type="text/javascript"></script> 
+
 <!--end: #app_container-->
