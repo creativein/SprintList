@@ -9,12 +9,7 @@
 
     TaskViewController.$inject = ['$state', '$scope','$location'];
     function TaskViewController($state, $scope,$location) {
-/* 		console.log($location.path);
-	if($location.path == '/taskView'){
-		$scope.sprintlistClass = 'dummy';
-	}
-	    */ 
-    
+
         var vm = this;
 
         // View Model Vars

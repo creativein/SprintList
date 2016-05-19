@@ -568,9 +568,24 @@ body {
 	float: left;
 	width: 100%;
 	background-size: 100%;
-	height: 42px;
 	background-repeat: no-repeat;
-	border-bottom: 4px solid #22A1CA;
+	position: relative;
+}
+.foot_icon.menu_on:before,.foot_icon.menu_off:before {
+	content: "";
+	background: #249EC5;
+	width: 100%;
+	height: 4px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	}
+	
+.custom_content {
+    position: relative;
+    width: 100%;
+    height: 83%;
+    margin-top: 3%;
 }
 .menu_on {
 	background: url(../images/menu-up.png);

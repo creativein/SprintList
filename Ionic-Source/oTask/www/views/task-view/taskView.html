@@ -4,11 +4,14 @@
   Timeline Website: http://otask.tumblr.com/
   Project Owner: Bappy Golder | www.BappyGolder.com
 -->
-<ion-view  ng-controller="ApplicationController" class="ion_custom">
-        <ion-content >  
+
+<!---- First Page Ionic View starts  --------->
+<ion-view  class="ion_custom">
+        
+		
   <!--start: Add Task Section -->
   <div id="add_task_section"> 
-    <form id="add_task" name="add_task">
+  <form id="add_task" name="add_task">
       
       <!--<textarea class="curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New Task . . ." onfocus="function(){console.log('hello');}"></textarea>-->
       
@@ -29,14 +32,13 @@
     </form>
   </div>
   <!--end: #add_task_section--> 
-  
-  <!--start: Task Section -->
  
+  <!--start: Task Section -->
+  <div class="custom_content">
+  <ion-content> 
     <!-- Show Empty text if no tasks exist -->
-    <div id="empty_msg"
-             ng-if="vm.isListEmpty"> </div>
+    <div id="empty_msg" ng-if="vm.isListEmpty"> </div>
     <!--Content/text added from the file -> static-html-content.js --> 
-    
     <!-- Show list if tasks exists --> 
     <!--<ul ng-if="!vm.isListEmpty">
             <div class="task">
@@ -74,16 +76,14 @@
                   </div>
             </li>
     </ul>	
- 
+    </ion-content>
+    </div>
     <!--end: Task Section -->
-	
 
-  
-  </ion-content>
     <div id="menu_overlay" class="menu_overlay" ></div>
 
-      </ion-view>
-
+    </ion-view>
+<!---- First Page Ionic View ends  --------->
   
 <!--   <div id="clear_task_section">
     <button id="clear_list_button"
@@ -101,16 +101,16 @@
   </div> <!--About button when task is empty-->
   <!--end: #clear_task_section--> 
       
-  <!--Javascript File Links-->
-<ion-footer-bar class="bar-transparent has-tabs has-footer" align-title="center" >
+  <!-- Ionic footer starts -->
+  <ion-footer-bar class="bar-transparent has-tabs has-footer" align-title="center" >
   <!------Menu Toggle starts -------->
   <div class="footer_menu">  
-	  <div ng-hide="slideToggle" class="main_menu_box" ng-click="slideToggle=! slideToggle">
-      <div class="foot_icon menu_on"></div>
+	  <div class="main_menu_box">
+      <div ng-hide="slideToggle"  ng-click="slideToggle=! slideToggle" class="foot_icon menu_on"></div>
       </div>
-	  <div ng-hide="!slideToggle" class="main_menu_box" ng-click="slideToggle=! slideToggle">
-            <div class="foot_icon menu_off"></div>
-</div>
+	  <div class="main_menu_box">
+      <div ng-hide="!slideToggle"  ng-click="slideToggle=! slideToggle" class="foot_icon menu_off"></div>
+	  </div>
 	  <div class="slide-toggle menu_box" ng-show="slideToggle">
 		   <ul>
 		   <li><a href="">Sprintlist </a></li>
@@ -121,8 +121,8 @@
 		   </ul>
 	  </div>
   </div>
-<!------------- Menu Toggle ends ------------->
-</ion-footer-bar>
+  <!------------- Menu Toggle ends ------------->
+  </ion-footer-bar>
+  <!-- Ionic footer ends -->
   <script src="js/static-html-content.js" type="text/javascript"></script> 
 
-<!--end: #app_container-->
