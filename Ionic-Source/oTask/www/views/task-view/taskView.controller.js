@@ -59,23 +59,17 @@
 			   var shortDesc = desc + '...';
 			   newTask.description = shortDesc;
             }
-			
-			
-			//alert(newTask.description);
             newTask.timestamp = new Date().getTime();
             vm.taskList.push(newTask);
             // Update and cleanup
             vm.isListEmpty = isTaskListEmpty();
             vm.newDescription = "";
             window.localStorage['taskList'] = angular.toJson(vm.taskList);
-			//document.getElementById("task_input_field").focus();
-			console.log("focus");
-			console.log(document.getElementById("task_input_field"));
 			$timeout(function(){
 				document.getElementById("task_input_field").focus();
 			},1);
         }
-  //         Start button task function starts //////////
+      //         Start button task function starts //
       function startTask()
 	  {
 		  vm.HeaderDiv = false;
@@ -84,9 +78,9 @@
 
 	  }
 	  
-	 //         Start button task function ends //////////////    
+	 //         Start button task function ends   //    
 
-      //    sprint list function starts //////////
+     //    sprint list function starts //
       function Sprintlist()
 	  {
 		  vm.HeaderDiv = false;
@@ -95,18 +89,20 @@
 
 	  }
 	  
-	 //         sprint list function ends ////////////  
+	 //         sprint list function ends //  
     
-	////	 clear list function starts //////////
-      function Clearlist()
+	//         clear list function starts  //
+      
+	  function Clearlist()
 	  {
 		window.localStorage.clear();
 		$scope.slideToggle = false;
 		start();
 	  }
-	 //        clear list function ends //////////
 	 
-	 //         Add item redirection function start //////////
+	 //        clear list function ends //
+	 
+	 //        Add item redirection function start //
 	     
 		 function HomePage()
 	  {
