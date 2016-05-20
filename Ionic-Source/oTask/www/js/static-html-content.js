@@ -1,4 +1,6 @@
 // contains static HTML data for the app. These are data that are not dinamically updated. use the TEMPLATE sections to create new data fields. 
+			
+		
 
 //content variables | TEMPLATE: var a = "";
 	var app_title_text = "SprintList";
@@ -28,3 +30,5 @@
 																		"i.e: Pay phone bill",
 																		"i.e: Water the plants"]
 
+
+	 

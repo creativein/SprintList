@@ -13,15 +13,17 @@
             }
             return{
               restrict: 'E',
-              template: '<textarea class="curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New List Item ..."></textarea>',  
+              template: '<textarea class="curve textarea_curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New List Item ..."></textarea>',  
               link: function(scope,element,attrs){
                             $('#task_input_field').focus(function() {
                                 $('#toggleDiv').fadeIn(); 
+                                 
                                // $('#start_task_button').fadeIn();
                                 $(this).attr('placeholder', dynamic_placeholder());
                             }).blur(function() {
                                 if($(this).val() == ''){
-                                    $('#toggleDiv').fadeOut();   
+                                    $('#toggleDiv').fadeOut(); 
+                                  									
                                     //$('#start_task_button').fadeOut();   
                                 }
                                 $(this).attr('placeholder', 'New List Item ...');

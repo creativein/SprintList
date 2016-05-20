@@ -28,6 +28,14 @@ Global CSS
 	-webkit-border-bottom-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 }
+
+
+#task_input_field.textarea_curve {
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
 .height52 {
 	height: 49.8px;
 }
@@ -555,7 +563,7 @@ body {
 
 .slide-toggle {
 	overflow: hidden;
-	transition: all 1.5s;
+	transition: all 0.4s;
 }
 .footer_menu {
 	float: left;
@@ -640,7 +648,7 @@ body {
 	background: rgba(0, 0, 0, 0.72);
 	height: 100%;
 	top: 0px;
-	transition: all .8s linear;
+	transition: all .2s linear;
 	visibility: visible;
 	opacity: 1;
 }
@@ -672,4 +680,51 @@ ion-footer-bar {
 	color: rgba(51, 51, 51, 0.9);
 	font-family: 'Open Sans', sans-serif;
 }
+.bar-footer {
+    background: #EFF0F0;
+}
 /*  Ionic custom style end */
+
+
+/*  popup css  */
+
+div#popup_overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background: rgba(0,0,0,0.7);
+    z-index: 99;
+}
+
+div#popup {
+    position: fixed;
+    z-index: 9999999;
+    background: #fff;
+    width: 80%;
+    left: 10%;
+    padding: 5%;
+    top: 30%;
+}
+#popup
+{
+display:none;
+	
+}#pop_close
+{
+display:none;
+	
+}
+.pop_close {
+    position: fixed;
+    z-index: 9999;
+    color: rgba(255,255,255,0.35);
+    bottom: 70px;
+    left: 40%;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    line-height: 47px;
+}

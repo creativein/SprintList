@@ -17,14 +17,6 @@
                 templateUrl: 'views/task-view/taskView.html',
                 controller: 'TaskViewController as vm'
             })
-             .state('login', {
-                url: '/login',
-                templateUrl: 'views/task-view/login.html'
-            })
-             .state('signup', {
-                url: '/signup',
-                templateUrl: 'views/task-view/signup'
-            })
 			 .state('taskStatus', {
                 url: '/taskStatus',
                 templateUrl: 'views/task-view/taskStatus.html',

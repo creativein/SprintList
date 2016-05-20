@@ -5,12 +5,14 @@
   Project Owner: Bappy Golder | www.BappyGolder.com
 -->
 
-<!---- First Page Ionic View starts  --------->
 <ion-view  class="ion_custom">
+<!---- First Page Ionic View starts  --------->
+
         
-		
+	       <div ng-show="vm.Progressbar" style="width:100%;background-color:rgb(63,81,181);float:left;height: 5px;">&nbsp;</div>	
+
   <!--start: Add Task Section -->
-  <div id="add_task_section"> 
+  <div ng-show="vm.HeaderDiv" id="add_task_section"> 
   <form id="add_task" name="add_task">
       
       <!--<textarea class="curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New Task . . ." onfocus="function(){console.log('hello');}"></textarea>-->
@@ -22,8 +24,10 @@
 		  <button class="curve" id="add_task_button" ng-click="vm.addTask()" ng-disabled="vm.newDescription == ''">
 		  </button>
 		  <span>|</span>
-		  <button class="curve"  id="start_task_button" ng-disabled="vm.newDescription == ''"></button>
+		  <button class="curve"  id="start_task_button" ng-click="vm.startTask()"></button>
 	  </div>
+	  
+
 					
 	  <!----------------- starts button ended ------------>
 					
@@ -35,9 +39,24 @@
  
   <!--start: Task Section -->
   <div class="custom_content">
+  <!-------------- popup div starts------------->
+  
+  <div id="popup" class="popup">
+		
+		<div id="pop_content" class="content">
+			
+		</div>
+	</div>
+			<div class="pop_close" id="pop_close" onclick="popup_close();" href="#">&times;</div>
+
+	<div id="popup_overlay" style="display:none;"></div>
+	
+	<!-------------- popup div ends------------->
   <ion-content> 
     <!-- Show Empty text if no tasks exist -->
-    <div id="empty_msg" ng-if="vm.isListEmpty"> </div>
+    
+	<div id="empty_msg" ng-if="vm.isListEmpty"> 
+	Your list is empty. Add something new!</div>
     <!--Content/text added from the file -> static-html-content.js --> 
     <!-- Show list if tasks exists --> 
     <!--<ul ng-if="!vm.isListEmpty">
@@ -52,11 +71,17 @@
                 </li>
             </div>
         </ul>-->
+		
     <ul id="sortable"  class="task-wrapper task_ul" ng-if="!vm.isListEmpty">
-            <li class="task  curve {{task.class}}" ng-repeat="task in vm.taskList" ng-class="{'selected': models.selected === task}" >
-                  <div class="task-bottom" ng-click="divalert($event)">
+	
+            <li  class="task  curve {{task.class}}" ng-repeat="task in vm.taskList" ng-class="{'selected': models.selected === task}" >
+
+	
+                  <div data-desc="{{task.fulldesc}}" class="task_li task-bottom" ng-click="divalert($event)">
                         <span>{{task.description}}</span>
                   </div>
+				  <script src="js/popup.js" type="text/javascript"></script> 
+		
                   <button class="cross_mark height52" ng-click="vm.deleteTask($index)"> 
                         <span class="icon icon-remove"></span>
                   </button>
@@ -102,7 +127,7 @@
   <!--end: #clear_task_section--> 
       
   <!-- Ionic footer starts -->
-  <ion-footer-bar class="bar-transparent has-tabs has-footer" align-title="center" >
+  <ion-footer-bar id="footerId" class="bar-transparent has-tabs has-footer" align-title="center" >
   <!------Menu Toggle starts -------->
   <div class="footer_menu">  
 	  <div class="main_menu_box">
@@ -113,11 +138,11 @@
 	  </div>
 	  <div class="slide-toggle menu_box" ng-show="slideToggle">
 		   <ul>
-		   <li><a href="">Sprintlist </a></li>
+		   <li><a ng-click="vm.Sprintlist()">Sprintlist </a></li>
 		   <li><a href="">Completed Items</a></li>
 		   <li><a href=""> Incomplete list </a></li>
-		   <li ><a href=""> Clear list  </a></li>
-		   <li ><a href=""> Add items  </a></li>
+		   <li ><a ng-click="vm.Clearlist()"> Clear list  </a></li>
+		   <li ><a ng-click="vm.HomePage()"> Add items  </a></li>
 		   </ul>
 	  </div>
   </div>
