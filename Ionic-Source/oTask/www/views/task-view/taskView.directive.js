@@ -17,14 +17,12 @@
               link: function(scope,element,attrs){
                             $('#task_input_field').focus(function() {
                                 $('#toggleDiv').fadeIn(); 
-                                 
-                               // $('#start_task_button').fadeIn();
+                                $('#task_input_field').removeClass("textarea_curve"); 
                                 $(this).attr('placeholder', dynamic_placeholder());
                             }).blur(function() {
                                 if($(this).val() == ''){
                                     $('#toggleDiv').fadeOut(); 
-                                  									
-                                    //$('#start_task_button').fadeOut();   
+                                  	$('#task_input_field').addClass("textarea_curve"); 
                                 }
                                 $(this).attr('placeholder', 'New List Item ...');
                                  
