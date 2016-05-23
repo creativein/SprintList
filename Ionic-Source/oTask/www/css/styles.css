@@ -37,7 +37,7 @@ Global CSS
     border-bottom-right-radius: 3px;
 }
 .height52 {
-	height: 49.8px;
+	height: 50px;
 }
 .greenbtn {
 	background: #4caf50;
@@ -60,7 +60,10 @@ Structure > Overall Structure
 	max-width: 500px;
 	position: relative;
 }
-#add_task_section, #task_section, #clear_task_section, .dots, div[empty-task-list-template] {
+#add_task_section,
+#task_section, 
+#clear_task_section, 
+ .dots, div[empty-task-list-template] {
 	padding: 5px 23px 0;/*Controls the breathing for both sides of the whole app*/
 }
 div[empty-task-list-template] {
@@ -166,9 +169,11 @@ div[empty-task-list-template] {
 }
 #toggleDiv span {
 	position: absolute;
-	color: rgba(255,255,255,0.80);
-	left: 50%;
-	margin-left: -1px;
+    color: rgba(255,255,255,0.75);
+    left: 50%;
+    margin-left: -1px;
+    font-size: 16px;
+    line-height: 38px;
 }
 .cross_mark {
 	position: absolute;
@@ -367,7 +372,7 @@ body, html {
 }
 #add_task_button, #start_task_button {
 	background: #249dc4 none repeat scroll 0 0;
-	color: rgba(255, 255, 255, 0.83);
+	color: rgba(255, 255, 255, 0.75);
 }
 #toggleDiv {
 	display: none;
@@ -411,10 +416,8 @@ body {
 /*--17-03-2016 --*/
 .task.curve .cross_mark {
 	border-radius: 0px;
-	right: -1px;
 	border-radius: 0 40px 40px 0;
 	padding: 0 45px 0 10px;
-	top: -1px;
 }
 .task.curve.fullView .cross_mark {
 	border-radius: 0 0 0 3px;
@@ -632,7 +635,7 @@ body {
 	width: 100%;
 }
 .menu_box ul li a {
-	color: rgba(255,255,255,0.70);
+	color: rgba(255,255,255,0.80);
 	text-align: center;
 	float: left;
 	width: 100%;
@@ -672,7 +675,6 @@ ion-footer-bar {
 .ion_custom .scroll .task_ul li {
 	border-radius: 40px;
 	background: #fff;
-	border: 1px solid rgba(204, 204, 204, 0.63);
 }
 .ion_custom .scroll .task_ul li .task-bottom {
 	font-size: 14px;
@@ -705,6 +707,8 @@ div#popup {
     left: 10%;
     padding: 5%;
     top: 30%;
+	border-radius: 10px;
+
 }
 #popup
 {
@@ -720,11 +724,12 @@ display:none;
     z-index: 9999;
     color: rgba(255,255,255,0.35);
     bottom: 70px;
-    left: 40%;
     border: 2px solid rgba(255, 255, 255, 0.35);
     width: 50px;
     height: 50px;
     text-align: center;
     border-radius: 100%;
     line-height: 47px;
+	left: 50%;
+    margin-left: -25px;
 }
