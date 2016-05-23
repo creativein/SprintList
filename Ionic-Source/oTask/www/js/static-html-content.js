@@ -14,7 +14,7 @@
 
 //add content to HTML DOM | TEMPLATE: $("#").append();
 	$("title").text(app_title_text);
-	$("#add_task_button").append(add_button_text);
+	$("#add_task_button").html(add_button_text);
 	$("#start_task_button").html(start_task_button);
 	$("#empty_msg").append(empty_list_message_text);
 	$("#clear_list_button").append(clear_list_text);
