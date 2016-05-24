@@ -1,7 +1,7 @@
 /*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic);*/
 
 /*--------------------------------------------------------------------------------------------------
-Test CSS
+Test CSS in sl25
 ---------------------------------------------------------------------------------------------------*/
 .task-bottom {
 /*background: pink;*/
@@ -705,8 +705,9 @@ ion-footer-bar {
 	background: #EFF0F0;
 }
 .ion_custom .scroll .task_ul {
-	padding: 14px 23px 0;
+	padding: 14px 23px 20px;
 }
+.ion_custom .scroll .task_ul.ul_pad{padding: 14px 23px 60px;}
 .ion_custom .scroll .task_ul li {
 	border-radius: 40px;
 	background: #fff;
@@ -754,9 +755,28 @@ display:none;
 display:none;
 	
 }
-.pop_close {
+.agree
+{
+	display:none;
+	color: none;
+}
+.close_pop_box {
     position: fixed;
     z-index: 9999;
+    bottom: 70px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    line-height: 47px;
+    left: 50%;
+    margin-left: -25px;
+}
+.tickMark{
+	width: 120px;
+	margin-left: -50px;
+}
+.pop_close {
     color: rgba(255,255,255,0.35);
     bottom: 70px;
     border: 2px solid rgba(255, 255, 255, 0.35);
@@ -765,6 +785,8 @@ display:none;
     text-align: center;
     border-radius: 100%;
     line-height: 47px;
-	left: 50%;
-    margin-left: -25px;
+    float: left;
+    font-size: 14px;
+}.pop_close.agree {
+    margin-right: 20px;
 }
