@@ -1,0 +1,45 @@
+<!--
+  Master Project Location: https://github.com/bappygolder/oTask
+  Live Hosted Website: http://bappygolder.github.io/oTask/Project-Source/#/taskView
+  Timeline Website: http://otask.tumblr.com/
+  Project Owner: Bappy Golder | www.BappyGolder.com
+-->
+<ion-view  class="ion_custom">
+  <ion-content> 
+    <!--start: Task Section -->
+    <div id="task_section" class="staticDemo">
+        <!-- Show Empty text if no tasks exist -->
+        <div id="static_msg"> 
+            This feature is not ready yet, but we are working on it. Stay tuned!
+        </div>
+       </div>
+    <!--end: Task Section -->
+
+
+<!--end: #app_container-->
+  </ion-content> 
+  </ion-view> 
+  <!-- Ionic footer starts -->
+  <ion-footer-bar id="footerId" class="bar-transparent has-tabs has-footer" align-title="center" >
+  <!------Menu Toggle starts -------->
+  <div class="footer_menu">  
+	  <div class="main_menu_box">
+      <div ng-hide="slideToggle"  ng-click="slideToggle=! slideToggle" class="foot_icon menu_on"></div>
+      </div>
+	  <div class="main_menu_box">
+      <div ng-hide="!slideToggle"  ng-click="slideToggle=! slideToggle" class="foot_icon menu_off"></div>
+	  </div>
+	  <div class="slide-toggle menu_box" ng-show="slideToggle">
+		   <ul>
+		   <li><a ng-click="vm.Sprintlist()">Sprintlist </a></li>
+		   <li><a onclick="location.href = '#/taskStatus';">Completed Items</a></li>
+		   <li><a onclick="location.href = '#/taskStatus';"> Incomplete list </a></li>
+		   <li ><a ng-click="vm.Clearlist()"> Clear list  </a></li>
+		   <li ><a ng-click="vm.HomePage()"> Add items  </a></li>
+		   </ul>
+	  </div>
+  </div>
+  <!------------- Menu Toggle ends ------------->
+  </ion-footer-bar>
+  <!-- Ionic footer ends -->
+  <script src="js/static-html-content.js" type="text/javascript"></script> 

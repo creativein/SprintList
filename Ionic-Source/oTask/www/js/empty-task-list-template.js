@@ -1,6 +1,6 @@
 //Empty task list view.
 
-angular.module("oTask")
+angular.module("SprintList")
 .directive('emptyTaskListTemplate', function(){
 	return {
 		template: empty_list_message_text	

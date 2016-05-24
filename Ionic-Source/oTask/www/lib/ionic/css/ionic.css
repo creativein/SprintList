@@ -4283,7 +4283,9 @@ a.subdued {
   border-top-width: 1px;
   border-bottom-width: 0;
   background-position: top;
-  height: 44px; }
+  height: 44px; 
+  padding:0px;
+}
   .bar-footer.item-input-inset {
     position: absolute; }
 
