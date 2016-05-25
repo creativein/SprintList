@@ -18,11 +18,13 @@
                             $('#task_input_field').focus(function() {
                                 $('#toggleDiv').fadeIn(); 
                                 $('#task_input_field').removeClass("textarea_curve"); 
+                                $('.task_ul').addClass("ul_pad"); 
                                 $(this).attr('placeholder', dynamic_placeholder());
                             }).blur(function() {
                                 if($(this).val() == ''){
                                     $('#toggleDiv').fadeOut(); 
                                   	$('#task_input_field').addClass("textarea_curve"); 
+									$('.task_ul').removeClass("ul_pad"); 
                                 }
                                 $(this).attr('placeholder', 'New List Item ...');
                                  

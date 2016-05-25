@@ -9,7 +9,7 @@
 <!---- First Page Ionic View starts  --------->
 
         
-	       <div ng-show="vm.Progressbar" style="width:100%;background-color:rgb(63,81,181);float:left;height: 5px;">&nbsp;</div>	
+	       <div ng-show="vm.Progressbar" class="ProgressBarDesign" >&nbsp;</div>	
 
   <!--start: Add Task Section -->
   <div ng-show="vm.HeaderDiv" id="add_task_section"> 
@@ -24,7 +24,7 @@
 		  <button class="curve" id="add_task_button" ng-click="vm.addTask()" ng-disabled="vm.newDescription == ''">
 		  </button>
 		  <span>|</span>
-		  <button class="curve"  id="start_task_button" ng-click="vm.startTask()"></button>
+		  <button class="curve"  id="start_task_button" ng-disabled="vm.isListEmpty" ng-click="vm.startTask()"></button>
 	  </div>
 	  
 
@@ -47,11 +47,21 @@
 			
 		</div>
 	</div>
-			<div class="pop_close" id="pop_close" onclick="popup_close();" href="#">&times;</div>
+	
+
+	<div class="close_pop_box">
+	    <div class="pop_close agree" id="agree" ng-click="vm.Clearlist()" href="#"></div>
+
+    <div class="pop_close" id="pop_close" onclick="popup_close();" href="#"></div>
+
+	</div>	
+		
 
 	<div id="popup_overlay" style="display:none;"></div>
 	
 	<!-------------- popup div ends------------->
+
+	
   <ion-content> 
     <!-- Show Empty text if no tasks exist -->
     
@@ -127,7 +137,7 @@
   <!--end: #clear_task_section--> 
       
   <!-- Ionic footer starts -->
-  <ion-footer-bar id="footerId" class="bar-transparent has-tabs has-footer" align-title="center" >
+  <ion-footer-bar  id="footerId" class="bar-transparent has-tabs has-footer" align-title="center" >
   <!------Menu Toggle starts -------->
   <div class="footer_menu">  
 	  <div class="main_menu_box">
@@ -138,10 +148,12 @@
 	  </div>
 	  <div class="slide-toggle menu_box" ng-show="slideToggle">
 		   <ul>
-		   <li><a ng-click="vm.Sprintlist()">Sprintlist </a></li>
-		   <li><a href="">Completed Items</a></li>
-		   <li><a href=""> Incomplete list </a></li>
-		   <li ><a ng-click="vm.Clearlist()"> Clear list  </a></li>
+		   <li ng-if="vm.isListEmpty"><a ng-click='vm.DefaultAppPage()'>Sprintlist </a></li>
+		   <li ng-if="!vm.isListEmpty"><a ng-click="vm.Sprintlist()">Sprintlist </a></li>
+		   <li><a ui-sref='taskStatus'>Completed Items</a></li>
+		   <li><a ui-sref='taskStatus'> Incomplete list </a></li>
+		   <li ng-if="vm.isListEmpty"><a ng-click='vm.DefaultAppPage()'> Clear list  </a></li>
+		   <li ng-if="!vm.isListEmpty"><a id="clearListFn"> Clear list  </a></li>
 		   <li ><a ng-click="vm.HomePage()"> Add items  </a></li>
 		   </ul>
 	  </div>

@@ -19,7 +19,7 @@
             })
 			 .state('taskStatus', {
                 url: '/taskStatus',
-                templateUrl: 'views/task-view/taskStatus.html',
+                templateUrl: 'views/task-view/TaskStatus.html',
                 controller: 'TaskViewController as vm'
             })
     }

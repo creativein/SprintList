@@ -1,7 +1,7 @@
 /*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic);*/
 
 /*--------------------------------------------------------------------------------------------------
-Test CSS in sl25
+Test CSS 
 ---------------------------------------------------------------------------------------------------*/
 .task-bottom {
 /*background: pink;*/
@@ -402,6 +402,12 @@ body, html {
 div[empty-task-list-template] {
 	color: #9E9E9E;
 }
+
+/*  progress bar color */
+.ProgressBarDesign{
+	background-color:#1ab4e6;
+}
+
 /*end: Colors
 ---------------------------------------------------------------------------------------------------*/
 
@@ -789,4 +795,28 @@ display:none;
     font-size: 14px;
 }.pop_close.agree {
     margin-right: 20px;
+}
+
+/*       progress bar css  */
+
+.ProgressBarDesign{
+	width:100%;
+	float:left;
+	height: 5px;
+}
+
+/*  under construction page css */
+
+.ok_got_it_btn
+{
+	border-radius: 30px;
+    border: 0px;
+    outline: 0px;
+    padding: 8px 8%;
+    margin: auto;
+    display: table;
+    background: #1AB4E6;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 17px;
 }
