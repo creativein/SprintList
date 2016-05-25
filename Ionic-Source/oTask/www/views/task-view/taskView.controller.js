@@ -21,6 +21,7 @@
         vm.startTask = startTask;
         vm.HomePage = HomePage;
         vm.Clearlist = Clearlist;
+        vm.DefaultAppPage = DefaultAppPage;
         vm.Sprintlist = Sprintlist;
         vm.HeaderDiv = true;
         vm.Progressbar = false;
@@ -85,6 +86,7 @@
 	  {
 		  vm.HeaderDiv = false;
 		  $scope.slideToggle = false;
+		  vm.Progressbar = true;
 		  $(".custom_content").css("height","100%");
 
 	  }
@@ -95,11 +97,20 @@
       
 	  function Clearlist()
 	  {
+		
 		window.localStorage.clear();
 		$scope.slideToggle = false;
+		vm.HeaderDiv = true;
+		vm.Progressbar =false;
 		start();
+		$('.close_pop_box').removeClass("tickMark");
+		$("#menu_overlay").css("visibility","hidden");
+		$("#menu_overlay").css("opacity","0");
+		$("#pop_close").click();
+		 
+		
 	  }
-	 
+	  
 	 //        clear list function ends //
 	 
 	 //        Add item redirection function start //
@@ -116,6 +127,19 @@
 	  }
 	  
 	  // Add item redirection function ends //
+	  
+	   //        Default App Page function start //
+	     
+		 function DefaultAppPage()
+	  {
+		  vm.HeaderDiv = true;
+		  vm.Progressbar = false;
+		  $scope.slideToggle = false;
+		  $(".custom_content").css("height","83%");
+
+	  }
+	  
+	  //  Default App Page function ends //
 	  
         function deleteTask(index) {
           
