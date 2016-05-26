@@ -5,32 +5,69 @@
   Project Owner: Bappy Golder | www.BappyGolder.com
 -->
 
-<div id="app_container"> 
-  
+<ion-view  class="ion_custom">
+<!---- First Page Ionic View starts  --------->
+
+        
+	       <div ng-show="vm.Progressbar" class="ProgressBarDesign" >&nbsp;</div>	
+
   <!--start: Add Task Section -->
-  <div id="add_task_section">
-    <form id="add_task" name="add_task">
+  <div ng-show="vm.HeaderDiv" id="add_task_section"> 
+  <form id="add_task" name="add_task">
       
       <!--<textarea class="curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New Task . . ." onfocus="function(){console.log('hello');}"></textarea>-->
       
       <input-textarea></input-textarea>
-      <button class="curve "
-                    id="add_task_button"
-                    ng-disabled="vm.newDescription == ''"
-                    ng-click="vm.addTask()"> </button>
+	  
+	  <!---------------Start Button added ----------->
+      <div id="toggleDiv">
+		  <button class="curve" id="add_task_button" ng-click="vm.addTask()" ng-disabled="vm.newDescription == ''">
+		  </button>
+		  <span>|</span>
+		  <button class="curve"  id="start_task_button" ng-disabled="vm.isListEmpty" ng-click="vm.startTask()"></button>
+	  </div>
+	  
+
+					
+	  <!----------------- starts button ended ------------>
+					
       <!--Button content/text added from the file ng-class="{'btn-disabled' : vm.newDescription == ''}" -> static-html-content.js -->
       
     </form>
   </div>
   <!--end: #add_task_section--> 
-  
+ 
   <!--start: Task Section -->
-  <div id="task_section" class="simpleDemo"> 
+  <div class="custom_content">
+  <!-------------- popup div starts------------->
+  
+  <div id="popup" class="popup"> 
+		
+		<div id="pop_content" class="content">
+			
+		</div>
+	</div>
+	
+
+	<div class="close_pop_box">
+	    <div class="pop_close agree" id="agree" ng-click="vm.Clearlist()" href="#"></div>
+
+    <div class="pop_close" id="pop_close" onclick="popup_close();" href="#"></div>
+
+	</div>	
+		
+
+	<div id="popup_overlay" style="display:none;"></div>
+	
+	<!-------------- popup div ends------------->
+
+	
+  <ion-content> 
     <!-- Show Empty text if no tasks exist -->
-    <div id="empty_msg"
-             ng-if="vm.isListEmpty"> </div>
-    <!--Content/text added from the file -> static-html-content.js --> 
     
+	<div id="empty_msg" ng-if="vm.isListEmpty"> 
+	Your list is empty. Add something new!</div>
+    <!--Content/text added from the file -> static-html-content.js --> 
     <!-- Show list if tasks exists --> 
     <!--<ul ng-if="!vm.isListEmpty">
             <div class="task">
@@ -44,11 +81,17 @@
                 </li>
             </div>
         </ul>-->
-    <ul id="sortable"  class="task-wrapper " ng-if="!vm.isListEmpty">
-            <li class="task  curve {{task.class}}" ng-repeat="task in vm.taskList" ng-class="{'selected': models.selected === task}" >
-                  <div class="task-bottom" ng-click="divalert($event)">
+		
+    <ul id="sortable"  class="task-wrapper task_ul" ng-if="!vm.isListEmpty">
+	
+            <li  class="task  curve {{task.class}}" ng-repeat="task in vm.taskList" ng-class="{'selected': models.selected === task}" >
+
+	
+                  <div data-desc="{{task.fulldesc}}" class="task_li task-bottom" ng-click="divalert($event)">
                         <span>{{task.description}}</span>
                   </div>
+				  <script src="js/popup.js" type="text/javascript"></script> 
+		
                   <button class="cross_mark height52" ng-click="vm.deleteTask($index)"> 
                         <span class="icon icon-remove"></span>
                   </button>
@@ -67,28 +110,56 @@
                         </div>
                   </div>
             </li>
-    </ul>
-  </div>
-  <!--end: Task Section -->
+    </ul>	
+    </ion-content>
+    </div>
+    <!--end: Task Section -->
+
+    <div id="menu_overlay" class="menu_overlay" ></div>
+
+    </ion-view>
+<!---- First Page Ionic View ends  --------->
   
-  <div id="clear_task_section">
+<!--   <div id="clear_task_section">
     <button id="clear_list_button"
                 ng-show="!vm.isListEmpty"
                 class="curve greenbtn"
                 type="button"
                 ng-click="vm.clearAllTasks()"> </button>
     
-    <!--About button when task is empty-->
+    
     <button id="about_otask_button"
                 ng-show="vm.isListEmpty"
                 class="curve greenbtn"
                 type="button"
-                onclick="window.open('http://otask.tumblr.com/about')"> </button>
-  </div>
+                > </button>
+  </div> <!--About button when task is empty-->
   <!--end: #clear_task_section--> 
       
-  <!--Javascript File Links-->
-
+  <!-- Ionic footer starts -->
+  <ion-footer-bar  id="footerId" class="bar-transparent has-tabs has-footer" align-title="center" >
+  <!------Menu Toggle starts -------->
+  <div class="footer_menu">  
+	  <div class="main_menu_box">
+      <div ng-hide="slideToggle"  ng-click="slideToggle=! slideToggle" class="foot_icon menu_on"></div>
+      </div>
+	  <div class="main_menu_box">
+      <div ng-hide="!slideToggle"  ng-click="slideToggle=! slideToggle" class="foot_icon menu_off"></div>
+	  </div>
+	  <div class="slide-toggle menu_box" ng-show="slideToggle">
+		   <ul>
+		   <li ng-if="vm.isListEmpty"><a ng-click='vm.DefaultAppPage()'>Sprintlist </a></li>
+		   <li ng-if="!vm.isListEmpty"><a ng-click="vm.Sprintlist()">Sprintlist </a></li>
+		   <li><a ui-sref='taskStatus'>Completed Items</a></li>
+		   <li><a ui-sref='taskStatus'> Incomplete list </a></li>
+		   <li ng-if="vm.isListEmpty"><a ng-click='vm.DefaultAppPage()'> Clear list  </a></li>
+		   <li ng-if="!vm.isListEmpty"><a id="clearListFn"> Clear list  </a></li>
+		   <li ><a ng-click="vm.HomePage()"> Add items  </a></li>
+		   </ul>
+	  </div>
+  </div>
+  <!------------- Menu Toggle ends ------------->
+  </ion-footer-bar>
+  <!-- Ionic footer ends -->
   <script src="js/static-html-content.js" type="text/javascript"></script> 
-</div>
-<!--end: #app_container-->
+

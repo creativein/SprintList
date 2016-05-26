@@ -4,8 +4,8 @@
 (function () {
     'use strict';
 	
-    angular.module('oTask')
-        .directive('inputTextarea',function(){
+    angular.module('SprintList')
+        .directive('inputTextarea',function($rootScope){
 
              // return the placeholder text
             function dynamic_placeholder(){
@@ -13,17 +13,21 @@
             }
             return{
               restrict: 'E',
-              template: '<textarea class="curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New List Item ..."></textarea>',  
+              template: '<textarea class="curve textarea_curve" ng-model="vm.newDescription" type="text" name="new_task" id="task_input_field" placeholder="New List Item ..."></textarea>',  
               link: function(scope,element,attrs){
                             $('#task_input_field').focus(function() {
-                                $('#add_task_button').fadeIn();
+                                $('#toggleDiv').fadeIn(); 
+                                $('#task_input_field').removeClass("textarea_curve"); 
+                                $('.task_ul').addClass("ul_pad"); 
                                 $(this).attr('placeholder', dynamic_placeholder());
                             }).blur(function() {
-                                if($(this).val() == ''){
-                                    $('#add_task_button').fadeOut();   
+                                if($(this).val() == '' && $rootScope.shouldFadeOut){
+                                    $('#toggleDiv').fadeOut(); 
+                                  	$('#task_input_field').addClass("textarea_curve"); 
+									$('.task_ul').removeClass("ul_pad"); 
                                 }
                                 $(this).attr('placeholder', 'New List Item ...');
-                                 
+                                $rootScope.shouldFadeOut = true;
                             })
                     }
             };
