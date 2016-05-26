@@ -7,8 +7,8 @@
     angular.module('SprintList')
         .controller('TaskViewController', TaskViewController);
 
-    TaskViewController.$inject = ['$state', '$scope', '$timeout'];
-    function TaskViewController($state, $scope, $timeout) {
+    TaskViewController.$inject = ['$state', '$scope', '$timeout', '$rootScope'];
+    function TaskViewController($state, $scope, $timeout, $rootScope) {
 		
 
         var vm = this;
@@ -47,6 +47,7 @@
 
         function addTask() {
             // Create and add
+			$rootScope.shouldFadeOut = false;
 			
             var newTask = createNewTask();
 			newTask.fulldesc = vm.newDescription;
@@ -68,7 +69,7 @@
             window.localStorage['taskList'] = angular.toJson(vm.taskList);
 			$timeout(function(){
 				document.getElementById("task_input_field").focus();
-			},1);
+			},100);
         }
       //         Start button task function starts //
       function startTask()

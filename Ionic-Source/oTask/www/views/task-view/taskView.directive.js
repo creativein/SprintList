@@ -5,7 +5,7 @@
     'use strict';
 	
     angular.module('SprintList')
-        .directive('inputTextarea',function(){
+        .directive('inputTextarea',function($rootScope){
 
              // return the placeholder text
             function dynamic_placeholder(){
@@ -21,13 +21,13 @@
                                 $('.task_ul').addClass("ul_pad"); 
                                 $(this).attr('placeholder', dynamic_placeholder());
                             }).blur(function() {
-                                if($(this).val() == ''){
+                                if($(this).val() == '' && $rootScope.shouldFadeOut){
                                     $('#toggleDiv').fadeOut(); 
                                   	$('#task_input_field').addClass("textarea_curve"); 
 									$('.task_ul').removeClass("ul_pad"); 
                                 }
                                 $(this).attr('placeholder', 'New List Item ...');
-                                 
+                                $rootScope.shouldFadeOut = true;
                             })
                     }
             };

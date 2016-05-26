@@ -1,7 +1,11 @@
 (function() {
     'use strict';
 
-    angular.module('SprintList', ['ui.router','ngAnimate','ionic']).controller('ApplicationController', ApplicationController);
+    angular.module('SprintList', ['ui.router','ngAnimate','ionic'])
+	.run(function($rootScope){
+		$rootScope.shouldFadeOut = true;
+	})
+	.controller('ApplicationController', ApplicationController);
 
     ApplicationController.$inject = ['$scope', '$location', '$rootScope'];
 
